@@ -1,6 +1,7 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, Repository, getConnection } from 'typeorm';
 import { Pokemon } from '../models';
 import { UpdatePokemon, PokemonType } from '../DTOs/Pokemon';
+import pokemonjson from '../../pokemonjson';
 
 @EntityRepository(Pokemon)
 export default class UserRepository extends Repository<Pokemon> {
@@ -16,6 +17,15 @@ export default class UserRepository extends Repository<Pokemon> {
     } catch (error) {
       return error.severity || error;
     }
+  }
+
+  public async createAll() {
+    const count = await this.count();
+    if (count !== 0) return;
+    await this.createQueryBuilder().insert().values(pokemonjson).execute();
+    const response = await this.createQueryBuilder('Pokemons').insert().values([...pokemonjson]);
+    console.log(response);
+    return response;
   }
 
   public async patch(

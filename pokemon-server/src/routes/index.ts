@@ -6,7 +6,7 @@ const router = Router();
 
 router.use('/user', UserRouter);
 router.route('/').get((req, res) => {
-  res.send('Made with 💚 and &lt; &#x0002F; &gt; by CITi');
+  res.send('Matheus Dalia');
 });
 
 export default router;

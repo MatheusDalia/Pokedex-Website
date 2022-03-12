@@ -6,6 +6,97 @@ import { PokemonRepository } from '../repositories';
 import { Pokemon, UpdatePokemon } from '../DTOs';
 
 class PokemonController {
+  async createAll(req: Request, res: Response, next: NextFunction) {
+    try {
+      const {
+        name,
+        pokemon_number,
+        img_name,
+        generation,
+        evolution_stage,
+        evolved,
+        family_id,
+        cross_gen,
+        type1,
+        type2,
+        weather1,
+        weather2,
+        stat_total,
+        atk,
+        def,
+        sta,
+        legendary,
+        acquirable,
+        spawns,
+        regional,
+        raidable,
+        hatchable,
+        shiny,
+        nest,
+        news,
+        not_gettable,
+        future_evolve,
+        full_cp_40,
+        full_cp_39,
+      } = req.body;
+
+      const pokemonRepository = getCustomRepository(PokemonRepository);
+
+      const pokemonData = {
+        name,
+        pokemon_number,
+        img_name,
+        generation,
+        evolution_stage,
+        evolved,
+        family_id,
+        cross_gen,
+        type1,
+        type2,
+        weather1,
+        weather2,
+        stat_total,
+        atk,
+        def,
+        sta,
+        legendary,
+        acquirable,
+        spawns,
+        regional,
+        raidable,
+        hatchable,
+        shiny,
+        nest,
+        news,
+        not_gettable,
+        future_evolve,
+        full_cp_40,
+        full_cp_39,
+      };
+
+      const { error } = Pokemon.validate(pokemonData);
+
+      if (error) {
+        return next({
+          status: 400,
+          message: error.details,
+        });
+      }
+
+      const user = await pokemonRepository.save(pokemonData);
+
+      res.locals = {
+        status: 201,
+        message: 'Pokedex created',
+        data: user,
+      };
+
+      return next();
+    } catch (error) {
+      return next(error);
+    }
+  }
+
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const {
@@ -87,7 +178,7 @@ class PokemonController {
 
       res.locals = {
         status: 201,
-        message: 'User created',
+        message: 'Pokemon created',
         data: user,
       };
 
