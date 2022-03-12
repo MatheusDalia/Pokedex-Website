@@ -22,6 +22,7 @@ export default class UserRepository extends Repository<Pokemon> {
   public async createAll() {
     const count = await this.count();
     if (count !== 0) return;
+    console.log('Hello');
     await this.createQueryBuilder().insert().values(pokemonjson).execute();
     const response = await this.createQueryBuilder('Pokemons').insert().values([...pokemonjson]);
     console.log(response);
