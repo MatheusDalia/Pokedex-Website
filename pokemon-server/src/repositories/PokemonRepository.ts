@@ -1,10 +1,10 @@
 import { EntityRepository, Repository, getConnection } from 'typeorm';
 import { Pokemon } from '../models';
 import { UpdatePokemon, PokemonType } from '../DTOs/Pokemon';
-import pokemonjson from '../../pokemonjson';
+import pokemonjson from '../../pokemonjson.json';
 
 @EntityRepository(Pokemon)
-export default class UserRepository extends Repository<Pokemon> {
+export default class PokemonRepository extends Repository<Pokemon> {
   public async findById(id: string): Promise<Pokemon | false | string> {
     try {
       const user = await this.findOne(id);

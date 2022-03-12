@@ -1,8 +1,10 @@
 import express, { Express } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
+import { getCustomRepository } from 'typeorm';
+import PokemonRepository from './repositories/PokemonRepository';
 import routes from './routes';
-import UserRepository from './repositories/PokemonRepository';
+
 import swaggerDocument from './docs';
 import { requestHandler, errorHandler } from './middlewares';
 
@@ -10,7 +12,8 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(async () => {
-  await UserRepository.createAll();
+  const pokemonRepository = getCustomRepository(PokemonRepository);
+  await pokemonRepository.createAll();
 });
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
