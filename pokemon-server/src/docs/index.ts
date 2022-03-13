@@ -4,8 +4,8 @@ import { userSchema } from './schemas';
 export default {
   openapi: '3.0.0',
   info: {
-    title: 'CITI+ API',
-    description: 'API para as aplicações de CITI+',
+    title: 'Pokemon API',
+    description: 'API para as aplicações da pokedex',
     version: '0.0.1',
   },
   servers: [

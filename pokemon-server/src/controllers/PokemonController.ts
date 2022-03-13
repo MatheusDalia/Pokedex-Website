@@ -220,6 +220,30 @@ class PokemonController {
     }
   }
 
+  async findAll(req: Request, res: Response, next: NextFunction) {
+    try {
+      const pokemonRepository = getCustomRepository(PokemonRepository);
+      const pokemons = await pokemonRepository.findAllPokemons();
+
+      if (!pokemons) {
+        return next({
+          status: 404,
+          message: 'No pokemons were found.',
+        });
+      }
+
+      res.locals = {
+        ...res.locals,
+        status: 200,
+        data: { courses },
+      };
+
+      return next();
+    } catch (error) {
+      return next(error);
+    }
+  }
+
   async delete(req: Request, res: Response, next: NextFunction) {
     try {
       const { userId } = req.params;

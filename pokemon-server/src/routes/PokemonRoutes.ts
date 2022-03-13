@@ -1,14 +1,17 @@
 import { Router } from 'express';
 import { PokemonController } from '../controllers';
 
-const userRouter = Router();
+const pokemonRouter = Router();
 
-userRouter.route('/')
+pokemonRouter.route('/')
   .post(
     PokemonController.create,
+  )
+  .get(
+    PokemonController.findAll,
   );
 
-userRouter.route('/:userId')
+pokemonRouter.route('/:pokemonId')
   .get(
     PokemonController.read,
   )
@@ -19,4 +22,4 @@ userRouter.route('/:userId')
     PokemonController.patch,
   );
 
-export default userRouter;
+export default pokemonRouter;

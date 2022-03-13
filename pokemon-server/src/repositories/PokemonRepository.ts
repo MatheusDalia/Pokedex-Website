@@ -22,11 +22,22 @@ export default class PokemonRepository extends Repository<Pokemon> {
   public async createAll() {
     const count = await this.count();
     if (count !== 0) return;
-    console.log('Hello');
     await this.createQueryBuilder().insert().values(pokemonjson).execute();
     const response = await this.createQueryBuilder('Pokemons').insert().values([...pokemonjson]);
-    console.log(response);
-    return response;
+  }
+
+  public async findAllPokemons(): Promise<false | Pokemon[]> {
+    try {
+      const pokemons = await this.find();
+
+      if (pokemons.length === 0) {
+        return false;
+      }
+
+      return pokemons;
+    } catch (error) {
+      return error;
+    }
   }
 
   public async patch(
