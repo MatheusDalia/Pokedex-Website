@@ -1,4 +1,4 @@
-import { EntityRepository, Repository, getConnection } from 'typeorm';
+import { DeleteResult, EntityRepository, Repository } from 'typeorm';
 import { Pokemon } from '../models';
 import { UpdatePokemon, PokemonType } from '../DTOs/Pokemon';
 import pokemonjson from '../../pokemonjson.json';
@@ -54,6 +54,15 @@ export default class PokemonRepository extends Repository<Pokemon> {
       const updatedUser = await this.findOne(id);
 
       return updatedUser;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  public async deleteByName(name: string): Promise<DeleteResult> {
+    try {
+      const pokemon = await this.findOne({ where: { name } });
+      return await this.delete(pokemon.id);
     } catch (error) {
       return error;
     }

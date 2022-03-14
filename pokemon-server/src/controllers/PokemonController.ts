@@ -179,7 +179,7 @@ class PokemonController {
 
       res.locals = {
         status: 200,
-        message: 'User deleted.',
+        message: 'Pokemon deleted.',
       };
 
       return next();

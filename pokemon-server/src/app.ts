@@ -11,10 +11,10 @@ import { requestHandler, errorHandler } from './middlewares';
 const app: Express = express();
 
 app.use(express.json());
-app.use(async () => {
-  const pokemonRepository = getCustomRepository(PokemonRepository);
-  await pokemonRepository.createAll();
-});
+// app.use(async () => {
+//   const pokemonRepository = getCustomRepository(PokemonRepository);
+//   await pokemonRepository.createAll();
+// });
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
