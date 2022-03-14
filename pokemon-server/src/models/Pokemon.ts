@@ -25,7 +25,7 @@ export default class Pokemon {
   @Column()
   evolved: Number;
 
-  @Column()
+  @Column({ nullable: true })
   family_id: Number;
 
   @Column()
@@ -34,13 +34,13 @@ export default class Pokemon {
   @Column('text')
   type1: string;
 
-  @Column('text')
+  @Column('text', { nullable: true })
   type2: string;
 
   @Column('text')
   weather1: string;
 
-  @Column('text')
+  @Column('text', { nullable: true })
   weather2: string;
 
   @Column()

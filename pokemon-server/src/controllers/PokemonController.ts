@@ -192,7 +192,7 @@ class PokemonController {
     try {
       const { userId } = req.params;
       const user = req.body;
-      const { error } = UpdatePokemon.validate(user);
+      const { error } = Pokemon.validate(user);
 
       if (error) {
         return next({
@@ -201,12 +201,12 @@ class PokemonController {
         });
       }
 
-      const userRepository = getCustomRepository(PokemonRepository);
-      await userRepository.patch(userId, user);
+      const pokemonRepository = getCustomRepository(PokemonRepository);
+      await pokemonRepository.patch(userId, user);
 
       res.locals = {
         status: 200,
-        message: 'User patched.',
+        message: 'Pokemon patched.',
       };
 
       return next();

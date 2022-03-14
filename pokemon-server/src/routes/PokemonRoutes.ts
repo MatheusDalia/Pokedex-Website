@@ -11,7 +11,7 @@ pokemonRouter.route('/')
     PokemonController.findAll,
   );
 
-pokemonRouter.route('/:pokemonId')
+pokemonRouter.route('/:userId')
   .get(
     PokemonController.read,
   )
