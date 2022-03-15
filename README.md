@@ -1,58 +1,84 @@
-# Teste de Desenvolvimento Web
+# Introduction.
 
-Olá Dev! Tudo bem?
+Hello, tudo joia? This project, based on a selective test by the company Redfox, was a challenge that I set myself to test my skills as a developer. From an excel file containing a list of pokemons, I created a pokedex site where the user can view all pokemons and their attributes in a friendly interface. The pokedex site also allows the user to search, delete and create a new pokemon.
 
-A RedFox está sempre em busca de profissionais interessantes e interessados, com boa capacidade de aprendizado, adaptação e principalmente motivação!
+For the development, I used Node.js, Express.js, Typescript and PostgreSQL
 
-Este teste tem como objetivo avaliar e desafiar você. Não é obrigatório realizá-lo completamente, queremos apenas conhecer você, seu esforço e potencial para aprender, se adaptar e tomar decisões.
+## Running the project:
 
-Agora vamos ao teste!
+**Pre-setup:**
+1. Be sure you have **docker/docker-compose** and **yarn** (or **npm**, if you use it) installed.
+2. Clone the repository by running 
+```bash 
+git clone https://github.com/MatheusDalia/teste-desenvolvimento-web.git
+```
 
+**Server setup:**
 
-## Desafio Pokémon
+1. In the server folder, install all the dependencies by running
+```bash 
+yarn install
+# or
+npm install
+```
+2. Create a **.env** file and copy the following content to it:
+```dotenv
+# ###### GENERAL SETTINGS #######
+PROJECT_NAME=pokemon
 
-Nós temos um problema, atualmente nosso sistema é só um excel, cheio de informações sobre Pokémon. Nós usamos ele como banco de dados e ao mesmo tempo interface de gerenciamento, inserindo, editando, deletando e filtrando os dados.
+# ###### SERVER SETTINGS #######
+SERVER_PORT=3001
 
-A missão é criar um sistema para substituir este excel, pois queremos expandir e acrescentar funcionalidades. Queremos manter o básico, mas principalmente queremos uma forma prática e agradável de buscar os dados, com listagem, filtros, paginação e detalhes sobre cada Pokémon.
+# ###### DATABASE SETTINGS #######
+DATABASE_HOST=pokemon-db
+DATABASE_TYPE=postgres
+DATABASE_PORT=5432
+DATABASE_USER=postgres
+DATABASE_PASSWORD=docker
+DATABASE_DB=citiplus
 
-Fique à vontade com o layout, precisamos de uma interface que consiga entregar as funcionalidades principais e substituir o excel, só isso.
+# ###### TEST DATABASE SETTINGS #######
+DATABASE_TEST_HOST=localhost
+DATABASE_TEST_PORT=5433
+DATABASE_TEST_USER=postgres
+DATABASE_TEST_PASSWORD=docker
+DATABASE_TEST_DB=citiplus-test
+```
+  
+3. To run the development server, run
+```bash
+docker-compose up
+```
+4. To run the migrations, open your .env, and change your DATABASE_HOST to this:
+```bash
+DATABASE_HOST=localhost
+```
+5. On a new terminal, run:
+```bash
+yarn migration
+```
+6. Switch your .env DATABASE_HOST back to this:
+```bash
+DATABASE_HOST=citiplus-db
+```
+7. Now the server should be running!
 
+**Client setup:**
 
-## Consigo fazer tudo isso?
+1. In the client folder, install all the dependencies by running
+```bash 
+yarn install
+# or
+npm install
+```
+2. To run the development server, run
+```bash
+yarn dev
+# or
+npm dev
+```
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Consegue sim!
+## Development team
 
-O teste é flexível, você pode escolher alguma parte específica dele para fazer, em que se sinta mais confortável e confiante, por exemplo: a interface, as funcionalidades, o banco de dados, etc...O importante é tentar atingir o objetivo de alguma forma.
-
-Aqui na RedFox queremos aproveitar ao máximo suas habilidades e aptidões, mas também desafiar você a adquirir novas, então nossa equipe tem a liberdade de trasitar entre frontend, backend, infraestrutura, etc...Sem se restringir, tudo depende do esforço e vontade de cada um.
-
-
-## Por onde começo?
-
-Primeiramente, você pode fazer um fork desse repositório aqui, para sua conta do Github, depois disso crie uma branch nova com o seu nome, para podermos indentificá-lo.
-
-Após terminar o desafio, você pode solicitar um pull request para a branch master do nosso repositório. Vamos receber e fazer a avaliação de todos.
-
-
-## E o Layout??
-
-Fique a vontade quanto a isso, não vamos avaliar o design da sua interface. Se quiser desenhar algo bacana, diferente, pensar até em UI/UX, etc...é claro que vamos valorizar o seu esforço e considerar como um diferencial, mas não se preocupe. 
-
-
-## Regras
-
-Para o desafio ficar mais interessante, decidimos criar algumas regras:
-- No layout, deve utilizar algum framework CSS (ex: Bootstrap, MaterializeCSS, Bulma...)
-- No frontend, deve utilizar algum framework JS (ex: VueJS, ReactJS, Angular...tente não usar jQuery)
-- No backend, deve utilizar NodeJS
-- Documentar um pouco o projeto, o que você fez e de que forma devemos executar-lo
-
-
-## Só isso?
-
-Só!...mas se quiser ir além, tente preparar o projeto para ser executado de maneira simples e prática, se coloque no lugar de alguém com menos conhecimentos, que precisa ver o que você desenvolveu. 
-
-ps: Se fizer deploy em algum servidor ou utilizar alguma ferramenta que facilite a execução (ex: docker), será um diferencial.
-
-
-Boa sorte! (^_^)
+- **Matheus Dalia** - *Front-end/Back-end developer* - [MatheusDalia](https://github.com/MatheusDalia)
