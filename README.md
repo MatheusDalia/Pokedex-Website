@@ -1,6 +1,6 @@
 # Introduction.
 
-Hello, tudo joia? This project, based on a selective test by the company Redfox, was a challenge that I set myself to test my skills as a developer. From an excel file containing a list of pokemons, I created a pokedex site where the user can view all pokemons and their attributes in a friendly interface. The pokedex site also allows the user to search, delete and create a new pokemon.
+Hello, tudo joia? This project, based on a selective test by the company Redfox, was a challenge that I set myself to test my skills as a developer. From an excel file containing a list of pokemons, I created a pokedex site where the user can view all pokemons and their attributes in a friendly interface. The pokedex site also allows the user to search, delete and create a pokemon.
 
 For the development, I used Node.js, Express.js, Typescript and PostgreSQL
 
