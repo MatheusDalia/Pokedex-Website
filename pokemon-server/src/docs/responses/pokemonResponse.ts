@@ -1,11 +1,11 @@
-const userResponse = {
+const pokemonResponse = {
   create: {
     201: {
-      description: 'User created',
+      description: 'Pokemon created',
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/user',
+            $ref: '#/components/schemas/pokemon',
           },
         },
       },
@@ -19,11 +19,11 @@ const userResponse = {
   },
   get: {
     200: {
-      description: 'User information',
+      description: 'Pokemon information',
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/user',
+            $ref: '#/components/schemas/pokemon',
           },
         },
       },
@@ -32,7 +32,7 @@ const userResponse = {
       description: 'Incorrect parameters',
     },
     404: {
-      description: 'User not found',
+      description: 'Pokemon not found',
     },
     500: {
       description: 'Internal Server Error',
@@ -41,11 +41,11 @@ const userResponse = {
 
   delete: {
     200: {
-      description: 'Delete user',
+      description: 'Delete pokemon',
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/user',
+            $ref: '#/components/schemas/pokemon',
           },
         },
       },
@@ -54,7 +54,7 @@ const userResponse = {
       description: 'Incorrect parameters',
     },
     404: {
-      description: 'User not found',
+      description: 'Pokemon not found',
     },
     500: {
       description: 'Internal Server Error',
@@ -63,11 +63,11 @@ const userResponse = {
 
   update: {
     201: {
-      description: 'User updated',
+      description: 'Pokemon updated',
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/user',
+            $ref: '#/components/schemas/pokemon',
           },
         },
       },
@@ -79,7 +79,7 @@ const userResponse = {
       description: 'Unauthorized action',
     },
     404: {
-      description: 'User not found',
+      description: 'Pokemon not found',
     },
     500: {
       description: 'Internal Server Error',
@@ -87,4 +87,4 @@ const userResponse = {
   },
 };
 
-export default userResponse;
+export default pokemonResponse;

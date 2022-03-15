@@ -1,5 +1,5 @@
-import { userPath } from './paths';
-import { userSchema } from './schemas';
+import { pokemonPath } from './paths';
+import { pokemonSchema } from './schemas';
 
 export default {
   openapi: '3.0.0',
@@ -15,11 +15,11 @@ export default {
     },
   ],
   paths: {
-    ...userPath,
+    ...pokemonPath,
   },
   components: {
     schemas: {
-      user: userSchema,
+      pokemon: pokemonSchema,
     },
   },
 };

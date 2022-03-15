@@ -1,3 +1,3 @@
-import userResponse from './userResponse';
+import pokemonResponse from './pokemonResponse';
 
-export { userResponse };
+export { pokemonResponse };

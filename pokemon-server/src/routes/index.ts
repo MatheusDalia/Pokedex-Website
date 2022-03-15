@@ -4,6 +4,6 @@ import PokemonRouter from './PokemonRoutes';
 
 const router = Router();
 
-router.use('/user', PokemonRouter);
+router.use('/pokemon', PokemonRouter);
 
 export default router;

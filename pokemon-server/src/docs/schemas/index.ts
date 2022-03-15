@@ -1,3 +1,3 @@
-import userSchema from './userSchema';
+import pokemonSchema from './pokemonSchema';
 
-export { userSchema };
+export { pokemonSchema };

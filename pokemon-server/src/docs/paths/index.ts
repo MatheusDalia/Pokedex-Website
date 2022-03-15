@@ -1,3 +1,3 @@
-import pokemonPath from './userPath';
+import pokemonPath from './pokemonPath';
 
-export { pokemonPath as userPath };
+export { pokemonPath };

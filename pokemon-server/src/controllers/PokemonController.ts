@@ -3,7 +3,7 @@ import {
 } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { PokemonRepository } from '../repositories';
-import { Pokemon, UpdatePokemon } from '../DTOs';
+import { Pokemon } from '../DTOs';
 
 class PokemonController {
   async createAll(req: Request, res: Response, next: NextFunction) {

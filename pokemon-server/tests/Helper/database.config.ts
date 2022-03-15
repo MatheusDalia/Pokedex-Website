@@ -2,9 +2,9 @@ import { ConnectionOptions } from 'typeorm';
 import { DatabaseConnection } from './DatabaseConnection';
 import 'dotenv/config';
 
-import { User } from '../../src/models';
+import { Pokemon } from '../../src/models';
 
-const dbEntities = [User];
+const dbEntities = [Pokemon];
 
 const options: ConnectionOptions = {
   name: 'default',
