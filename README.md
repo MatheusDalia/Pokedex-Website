@@ -59,7 +59,7 @@ yarn migration
 ```
 6. Switch your .env DATABASE_HOST back to this:
 ```bash
-DATABASE_HOST=citiplus-db
+DATABASE_HOST=pokemon-db
 ```
 7. Now the server should be running!
 
