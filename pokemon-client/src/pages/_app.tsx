@@ -11,8 +11,12 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <SessionProvider session={session}>
       <ThemeProvider theme={theme}>
         <Head>
-          <title>CITi+</title>
-          <link rel="shortcut icon" href="/img/logo.svg" type="image/x-icon" />
+          <title>Pokedex</title>
+          <link
+            rel="shortcut icon"
+            href="/img/pokebola.png"
+            type="image/x-icon"
+          />
           <link rel="apple-touch-icon" href="/img/icon-512.png" />
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#06092B" />
